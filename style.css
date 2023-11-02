@@ -7,20 +7,20 @@
 :root {
   --text-color: white;
   --bg-url: url(./Assets/assets/assets/bg-orangeblue.jpg);
-  --stroke-color: rgba( 255, 255, 255, 0.5);
-  --surface-color: rgba(255,255,255,0.1);
-  --surface-color-hover: rgba(255,255,255,0.05);
-  --highlight-color: rgba(255,255,255,0.2);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./Assets/assets/assets/moon-stars.svg);
 }
 
 .light {
   --text-color: black;
   --bg-url: url(./Assets/assets/assets/bg-orangelight.jpg);
-  --stroke-color: rgba(0 , 0, 0, 0.50);
-  --surface-color: rgba(0 ,0 ,0 , 0.05);
-  --surface-color-hover: rgba(0,0,0,0.02);
-  --highlight-color: rgba(0,0,0,0.3);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.3);
   --switch-bg-url: url(./Assets/assets/assets/sun.svg);
 }
 body {
@@ -32,8 +32,8 @@ body {
 */
 
   /* background: color image repeat position/size */
-  background: var(--bg-url) no-repeat top
-    center/cover;
+  background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -43,7 +43,9 @@ body * {
 
 /* Alinhamento do Profile aula de display inline e block*/
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
+  max-height: 100%;
   margin: 56px auto 0px auto;
   padding: 0 24px;
 }
@@ -67,7 +69,6 @@ body * {
   position: relative;
   width: 64px;
   margin: 4px auto;
-  
 }
 #switch button {
   width: 32px;
@@ -82,12 +83,15 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
 
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -139,14 +143,12 @@ ul li a:hover {
 }
 
 #social-links {
-
   display: flex;
   align-items: flex-start;
   padding: 24px;
   justify-content: center;
   align-self: stretch;
   font-size: 24px;
-
 }
 #social-links a {
   display: flex;
@@ -159,7 +161,7 @@ ul li a:hover {
 }
 #social-links a:hover {
   background: var(--highlight-color);
-  padding: 16px; 
+  padding: 16px;
 }
 
 footer {
@@ -173,4 +175,34 @@ footer {
 
 footer :hover {
   color: orangered;
+}
+
+/* media queries*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./Assets/assets/assets/bg-orangeblue.jpg);
+  }
+
+  .light {
+    --bg-url: url(./Assets/assets/assets/bg-orangelight.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from{
+    left: 50%;
+  }
+  to{
+    left:0;
+  }
 }
