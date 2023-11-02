@@ -18,7 +18,7 @@ Evento exclusivo e gratuito, promovido pela Rocketseat para ensino de tecnologia
 <br>
 
 <p align="center">
-  <img alt="Agregador de link" src=".Projeto/Assets/export dev/Image-1.png" width="100%">
+  <img alt="Agregador de link" src="./Assets/export dev/Image-1.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
